@@ -1,6 +1,7 @@
 import Today from "@/components/atoms/Today.tsx";
 import getForecast from "@/services/API/actions.ts";
 import { useState, useEffect } from "react";
+import { getToday } from "../../services/utils/utils";
 
 interface structure {
   index: number;
@@ -29,11 +30,32 @@ const TemperatureWeek = () => {
     <div className="flex flex-row w-full h-screen">
       <div className="align-middle m-auto w-full xl:p-20">
         <div className="flex flex-col flex-wrap gap-5 items-center text-center justify-center w-full h-full">
-          {/* <Today temp="20" day="sunday" titled="text-5xl text-bright-blue" /> */}
+          {temps.map((temp) => {
+            if (temp.date == getToday()) {
+              return (
+                <Today
+                  key={temp.index}
+                  temp={temp.temperature}
+                  day={temp.date}
+                  titled="text-5xl text-bright-blue"
+                />
+              );
+            }
+          })}
           <div className="flex flex-row gap-2 flex-wrap text-center justify-items-center justify-evenly w-full text-2xl text-light-blue">
-            {temps.map((temp) => (
-              <Today key={temp.index} temp={temp.temperature} day={temp.date} />
-            ))}
+            {temps.map((temp) => {
+              if (temp.date == getToday()) {
+                return;
+              } else {
+                return (
+                  <Today
+                    key={temp.index}
+                    temp={temp.temperature}
+                    day={temp.date}
+                  />
+                );
+              }
+            })}
           </div>
         </div>
       </div>

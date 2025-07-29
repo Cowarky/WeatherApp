@@ -31,4 +31,8 @@ export function getTemperatures(data: hourly[]) {
   return result;
 }
 
-// export function getTemperatures(data: temperature) {}
+export function getToday() {
+  const todayDate = new Date();
+
+  return daysOfWeek[todayDate.getDay()];
+}

@@ -8,7 +8,10 @@ const getForecast = async () => {
       "Content-Type": "application/json", // Set the content type
     },
   };
-  const response = await fetch("http://localhost:3000/temp", options);
+  const response = await fetch(
+    "https://api.open-meteo.com/v1/forecast?latitude=33.8933&longitude=35.5016&hourly=temperature_180m",
+    options,
+  );
   if (!response.ok) {
     console.log("error");
   }
