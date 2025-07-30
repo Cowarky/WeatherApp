@@ -7,8 +7,7 @@ const Logo = () => {
       >
         B
         <span className="text-2xl">
-          eirut<span className="text-3xl">T</span>o
-          <span className="text-3xl">D</span>ay
+          eirut<span className="text-3xl">T</span>oday
         </span>
       </h1>
       <hr className="border-very-light-blue" />

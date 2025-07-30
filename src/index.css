@@ -6,4 +6,29 @@
     --color-soft-blue: #a3c5ff;
     --color-very-light-blue: #d1e5ff;
     --color-almost-white-blue: #f0f8ff;
+    --color-soft-yellow: #f9f2b2;
+}
+
+@keyframes gradient-rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 0% 100%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animated-gradient {
+    background: linear-gradient(180deg, #f0f8ff, #a3c5ff, #f9f2b2);
+    background-size: 400% 400%;
+    animation: gradient-rotate 50s ease infinite;
 }
