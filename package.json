@@ -1,5 +1,6 @@
 {
   "name": "weatherapp",
+  "homepage": "https://Cowarky.github.io/WeatherApp",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,11 +8,14 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "cors": "^2.8.5",
+    "gh-pages": "^6.3.0",
     "normalize": "^0.3.1",
     "normalize.css": "^8.0.1",
     "react": "^19.1.0",

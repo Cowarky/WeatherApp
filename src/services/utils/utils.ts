@@ -1,34 +1,49 @@
-import daysOfWeek from "@/services/utils/types.ts";
+import daysOfWeek from "./types.ts";
 
 interface hourly {
-  time: string | Date;
-  temperature_180m: number | string;
+  time: Date[]; // Array of Date objects
+  temperature_180m: number[]; // Array of temperature values
 }
+
 export function getTemperatures(data: hourly[]) {
-  const result = [];
-  const daysSeen = new Set(); // To track distinct days
+  const result: { index: number; date: string; temperature: number }[] = [];
+  const daysSeen = new Set<number>(); // To track distinct days
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-  for (let i = 0; i < data.time.length; i++) {
-    // console.log(i);
-    const newDate = new Date(data.time[i]);
-    const dayIndex = newDate.getDay();
+  for (let i = 0; i < data.length; i++) {
+    // Loop through each hourly object
+    const times = data[i].time; // Access the time array for the current hourly object
+    const temperatures = data[i].temperature_180m; // Access the temperature array
 
-    // Check if this day has already been added
-    if (!daysSeen.has(dayIndex)) {
-      // console.log(dayIndex);
-      result.push({
-        index: i,
-        date: dayIndex,
-        temperature: data.temperature_180m[i],
-      });
-      daysSeen.add(dayIndex); // Mark this day as seen
+    for (let j = 0; j < times.length; j++) {
+      // Loop through the time array
+      const newDate = new Date(times[j]);
+      const dayIndex = newDate.getDay();
+
+      // Check if this day has already been added
+      if (!daysSeen.has(dayIndex)) {
+        result.push({
+          index: result.length, // Use result.length for the index
+          date: daysOfWeek[dayIndex], // Use the day name
+          temperature: temperatures[j], // Access the corresponding temperature
+        });
+        daysSeen.add(dayIndex); // Mark this day as seen
+      }
     }
   }
-  result.sort((a, b) => a.date - b.date);
-  for (let j = 0; j < result.length; j++) {
-    result[j].date = daysOfWeek[j];
-  }
-  return result;
+
+  result.sort(
+    (a, b) => daysOfWeek.indexOf(a.date) - daysOfWeek.indexOf(b.date),
+  ); // Sort by day of the week
+  return result; // Return the result array
 }
 
 export function getToday() {

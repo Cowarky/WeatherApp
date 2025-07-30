@@ -1,4 +1,4 @@
-import Banner from "@/components/organisms/Banner.tsx";
+import Banner from "./components/organisms/Banner.tsx";
 
 function App() {
   return (

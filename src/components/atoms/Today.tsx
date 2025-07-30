@@ -1,12 +1,15 @@
-const ToDay = ({ temp, day, titled }) => {
-  // console.log("hello world");
+interface ToDayProps {
+  temp: string;
+  day: string;
+  titled: string;
+}
+
+const ToDay: React.FC<ToDayProps> = ({ temp, day, titled }) => {
   return (
-    <>
-      <div className={titled}>
-        <h1 style={{ margin: "0.3em 0" }}> {temp} </h1>
-        <h2 className="text-light-blue">{day}</h2>
-      </div>
-    </>
+    <div className={titled}>
+      <h1 style={{ margin: "0.3em 0" }}>{temp}</h1>
+      <h2 className="text-light-blue">{day}</h2>
+    </div>
   );
 };
 

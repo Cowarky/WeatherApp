@@ -1,5 +1,5 @@
 // import { forecast } from "@/services/API/forecast.ts";
-import { getTemperatures } from "@/services/utils/utils.ts";
+import { getTemperatures } from "../utils/utils.ts";
 
 const getForecast = async () => {
   const options = {

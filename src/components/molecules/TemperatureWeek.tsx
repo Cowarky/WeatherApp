@@ -1,19 +1,17 @@
-import Today from "@/components/atoms/Today.tsx";
-import getForecast from "@/services/API/actions.ts";
+import Today from "../atoms/Today.tsx";
+import getForecast from "../../services/API/actions.ts";
 import { useState, useEffect } from "react";
 import { getToday } from "../../services/utils/utils";
 
-interface structure {
+type structure = {
   index: number;
-  date: Date | string;
-  temperature: number | string;
-}
+  date: number | string | Date; // Allow number, string, or Date
+  temperature: number; // Adjust this type as needed
+};
 
 const getData = async (): Promise<structure[]> => {
-  return new Promise<structure[]>(async (resolve, reject) => {
-    const data = await getForecast();
-    resolve(data);
-  });
+  const data = await getForecast();
+  return data;
 };
 
 const TemperatureWeek = () => {
@@ -36,7 +34,7 @@ const TemperatureWeek = () => {
                 <Today
                   key={temp.index}
                   temp={temp.temperature + " °C"}
-                  day={temp.date}
+                  day={temp.date as string}
                   titled="text-5xl text-bright-blue"
                 />
               );
@@ -51,7 +49,8 @@ const TemperatureWeek = () => {
                   <Today
                     key={temp.index}
                     temp={temp.temperature + " °C"}
-                    day={temp.date}
+                    day={temp.date as string}
+                    titled=""
                   />
                 );
               }

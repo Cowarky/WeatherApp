@@ -1,6 +1,6 @@
-import TemperatureWeek from "@/components/molecules/TemperatureWeek.tsx";
-import Logo from "@/components/atoms/Logo.tsx";
-import Footer from "@/components/atoms/Footer.tsx";
+import TemperatureWeek from "../molecules/TemperatureWeek.tsx";
+import Logo from "../atoms/Logo.tsx";
+import Footer from "../atoms/Footer.tsx";
 
 const Banner = () => {
   return (
