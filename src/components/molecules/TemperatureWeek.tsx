@@ -11,6 +11,7 @@ type structure = {
 
 const getData = async (): Promise<structure[]> => {
   const data = await getForecast();
+  console.log(data)
   return data;
 };
 

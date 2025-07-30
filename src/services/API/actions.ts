@@ -12,6 +12,7 @@ const getForecast = async () => {
     "https://api.open-meteo.com/v1/forecast?latitude=33.8933&longitude=35.5016&hourly=temperature_180m",
     options,
   );
+  
   if (!response.ok) {
     console.log("error");
   }

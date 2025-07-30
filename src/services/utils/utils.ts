@@ -5,23 +5,17 @@ interface hourly {
   temperature_180m: number[]; // Array of temperature values
 }
 
-export function getTemperatures(data: hourly[]) {
+export function getTemperatures(data: hourly) {
   const result: { index: number; date: string; temperature: number }[] = [];
   const daysSeen = new Set<number>(); // To track distinct days
-  const daysOfWeek = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
 
-  for (let i = 0; i < data.length; i++) {
+  // console.log(data.time)
+
+
+  // for (let i = 0; i < data.length; i++) {
     // Loop through each hourly object
-    const times = data[i].time; // Access the time array for the current hourly object
-    const temperatures = data[i].temperature_180m; // Access the temperature array
+    const times = data.time; // Access the time array for the current hourly object
+    const temperatures = data.temperature_180m; // Access the temperature array
 
     for (let j = 0; j < times.length; j++) {
       // Loop through the time array
@@ -38,11 +32,11 @@ export function getTemperatures(data: hourly[]) {
         daysSeen.add(dayIndex); // Mark this day as seen
       }
     }
-  }
+  // }
 
-  result.sort(
-    (a, b) => daysOfWeek.indexOf(a.date) - daysOfWeek.indexOf(b.date),
-  ); // Sort by day of the week
+  // result.sort(
+  //   (a, b) => daysOfWeek.indexOf(a.date) - daysOfWeek.indexOf(b.date),
+  // ); // Sort by day of the week
   return result; // Return the result array
 }
 
