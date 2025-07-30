@@ -9,11 +9,6 @@ export function getTemperatures(data: hourly) {
   const result: { index: number; date: string; temperature: number }[] = [];
   const daysSeen = new Set<number>(); // To track distinct days
 
-  // console.log(data.time)
-
-
-  // for (let i = 0; i < data.length; i++) {
-    // Loop through each hourly object
     const times = data.time; // Access the time array for the current hourly object
     const temperatures = data.temperature_180m; // Access the temperature array
 
@@ -32,12 +27,11 @@ export function getTemperatures(data: hourly) {
         daysSeen.add(dayIndex); // Mark this day as seen
       }
     }
-  // }
 
-  // result.sort(
-  //   (a, b) => daysOfWeek.indexOf(a.date) - daysOfWeek.indexOf(b.date),
-  // ); // Sort by day of the week
-  return result; // Return the result array
+  result.sort(
+    (a, b) => daysOfWeek.indexOf(a.date) - daysOfWeek.indexOf(b.date),
+  ); 
+  return result;
 }
 
 export function getToday() {
