@@ -5,7 +5,7 @@ const Footer = () => {
         Designed & Developed by{" "}
         <span className="text-purple-700">Malek Sabeh Ayoun</span>
       </p>
-      <p className="mt-5 sm:mt-0">
+      <p className="dark mt-5 sm:mt-0 dark:text-white text-black">
         API used:
         <a href="https://open-meteo.com/" className="underline">
           OpenMeteo

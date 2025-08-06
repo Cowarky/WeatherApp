@@ -1,15 +1,34 @@
 @import "tailwindcss";
 
+/*@custom-variant dark (&:where(.dark, .dark *));*/
+
 @theme {
-    --color-bright-blue: #3c83f6;
+    /*--color-bright-blue: #3c83f6;
     --color-light-blue: #6ca6fe;
     --color-soft-blue: #a3c5ff;
     --color-very-light-blue: #d1e5ff;
     --color-almost-white-blue: #f0f8ff;
-    --color-soft-yellow: #f9f2b2;
+    --color-soft-yellow: #f9f2b2;*/
+    --color-primary: #2e6f9a;
+    --color-primary-complementary: #8bb8d9;
+    --color-secondary: #ffffff;
+    --color-addition: #fffacd;
+    --color-addition-complementary: #ffb300;
 }
 
-@keyframes gradient-rotate {
+.dark {
+    /*--color-primary: #00061a;
+    --color-secondary: #1b1a55;
+    --color-secondary-complementary: #a3c5ff;
+    --color-addition: #1b1a55;*/
+    --color-primary: #00061a;
+    --color-primary-complementary: #002b4d;
+    --color-secondary: #483d8b;
+    --color-addition: #483d8b;
+    --color-addition-complementary: #00061a;
+}
+
+/*@keyframes gradient-rotate {
     0% {
         background-position: 0% 50%;
     }
@@ -25,10 +44,10 @@
     100% {
         background-position: 0% 50%;
     }
-}
+}*/
 
-.animated-gradient {
+/*.animated-gradient {
     background: linear-gradient(180deg, #f0f8ff, #a3c5ff, #f9f2b2);
     background-size: 400% 400%;
     animation: gradient-rotate 50s ease infinite;
-}
+}*/

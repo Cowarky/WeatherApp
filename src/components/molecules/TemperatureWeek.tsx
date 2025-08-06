@@ -37,12 +37,12 @@ const TemperatureWeek = () => {
                   key={temp.index}
                   temp={temp.temperature + " °C"}
                   day={temp.date as string}
-                  titled="text-5xl text-bright-blue"
+                  titled="text-5xl text-secondary"
                 />
               );
             }
           })}
-          <div className="flex flex-row flex-wrap text-center justify-items-center justify-evenly w-full text-2xl text-blue-400">
+          <div className="flex flex-row flex-wrap text-center justify-items-center justify-evenly w-full text-2xl text-secondary">
             {temps.map((temp) => {
               if (temp.date == getToday()) {
                 return;

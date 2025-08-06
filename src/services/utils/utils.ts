@@ -16,7 +16,6 @@ export function getTemperatures(data: hourly) {
     // Loop through the time array
     const newDate = new Date(times[j]);
     const dayIndex = newDate.getDay();
-    console.log(dayIndex);
     // Check if this day has already been added
     if (!daysSeen.has(dayIndex)) {
       result.push({
@@ -34,6 +33,15 @@ export function getTemperatures(data: hourly) {
 
 export function getToday() {
   const todayDate = new Date();
-  console.log(todayDate.getDay());
+  // console.log(isNight());
   return daysOfWeek[todayDate.getDay()];
+}
+
+export function isNight(): boolean {
+  const now = new Date();
+  // now.setHours(10, 0, 0);
+  if (now.getHours() > 17 || now.getHours() < 5) {
+    return true;
+  }
+  return false;
 }
