@@ -28,7 +28,7 @@ const TemperatureWeek = () => {
   return (
     <div className="flex flex-row w-full xl:h-dvh xs:h-full">
       <div className="align-middle m-auto w-full xl:p-20">
-        <div className="flex flex-col flex-wrap gap-5 items-center text-center justify-center w-full h-full">
+        <div className="flex flex-col flex-wrap gap-5 items-center text-center justify-center w-full h-full ">
           {temps.map((temp) => {
             // console.log(temp.date);
             if (temp.date == getToday()) {
