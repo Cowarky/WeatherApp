@@ -17,7 +17,8 @@ const getForecast = async () => {
     console.log("error");
   }
   const data = await response.json();
-  // console.log(data.hourly.time[1]);
+  console.log(data.hourly)
+
   return getTemperatures(data.hourly);
 };
 

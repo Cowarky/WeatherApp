@@ -2,7 +2,9 @@ import Wind from "../atoms/Wind";
 
 const AnimatedWind = () => {
   return (
-    <div className="relative">
+    <div className="relative w-screen">
+      <Wind />
+      <Wind />
       <Wind />
       <Wind />
       <Wind />

@@ -5,8 +5,8 @@ import { getToday } from "../../services/utils/utils";
 
 type structure = {
   index: number;
-  date: number | string | Date; // Allow number, string, or Date
-  temperature: number; // Adjust this type as needed
+  date: number | string | Date;
+  temperature: number; 
 };
 
 const getData = async (): Promise<structure[]> => {
@@ -30,7 +30,6 @@ const TemperatureWeek = () => {
       <div className="align-middle m-auto w-full xl:p-20">
         <div className="flex flex-col flex-wrap gap-5 items-center text-center justify-center w-full h-full ">
           {temps.map((temp) => {
-            // console.log(temp.date);
             if (temp.date == getToday()) {
               return (
                 <Today
